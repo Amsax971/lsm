@@ -3,7 +3,9 @@ use std::path::Path;
 use std::error::Error;
 use std::process;
 use colored::Colorize;
+use perm::perms;
 
+mod perm;
 
 fn main() {
 	if let Err(ref e) = run(Path::new(".")) {
@@ -13,7 +15,7 @@ fn main() {
 }
 
 fn run(dir: &Path) -> Result<(), Box< dyn Error>> {
-	if dir.is_dir() {
+		
 		for entry in fs::read_dir(dir)? {
 				let entry = entry?;
 				let file_name = entry
@@ -41,19 +43,22 @@ fn run(dir: &Path) -> Result<(), Box< dyn Error>> {
 						flenf = flenf.round();
 					}
 				}
+
+				let perma = perms(&file_name);
 				flens = flenf.to_string();
 				if Path::new(&file_name).is_file() {
 					if k == 0 {
-						println!("{}{}	{}",flens.green() ,"o".green() ,file_name.blue());
+						println!("{}{}	{:?}	{}",flens.cyan() ,"o".cyan(),perma ,file_name.blue());
 					} else if k == 1 {
-						println!("{}{}	{}",flens.green() ,"ko".green() ,file_name.blue());
+						println!("{}{}	{}",flens.cyan() ,"ko".cyan() ,file_name.blue());
+						let _ = perms(&file_name);
 					} else if k == 2 {
-						println!("{}{}	{}",flens.green() ,"mo".green() ,file_name.blue());
+						println!("{}{}	{}",flens.cyan() ,"mo".cyan() ,file_name.blue());
+						let _ = perms(&file_name);
 					}
 				} else {
-					println!("{}", file_name.green());
+						println!("{}	{}","dir".cyan() ,file_name.green());
 				}
 			}
-		}
 	Ok(())
 }
