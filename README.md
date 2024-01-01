@@ -10,15 +10,17 @@
 On other unix based os use : `curl https://sh.rustup.rs -sSf | sh`
 
 Then install `lsm` with these commands :
-`git clone https://github.com/Amsax971/lsm.git ./lsm`
-`cd ./lsm`
-`make install`
+```sh
+git clone https://github.com/Amsax971/lsm.git ./lsm
+cd ./lsm
+make install
+```
 
 to uninstall lsm you have to get back in the previoulsy cloned repository or reclone the repository if you deleted it and execute this :
 
-`
+```sh
 make uninstall
-`
+```
 
 # More
 
