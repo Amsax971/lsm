@@ -50,11 +50,9 @@ fn run(dir: &Path) -> Result<(), Box< dyn Error>> {
 					if k == 0 {
 						println!("{}{}	{:?}	{}",flens.cyan() ,"o".cyan(),perma ,file_name.blue());
 					} else if k == 1 {
-						println!("{}{}	{}",flens.cyan() ,"ko".cyan() ,file_name.blue());
-						let _ = perms(&file_name);
+						println!("{}{}	{:?}	{}",flens.cyan() ,"ko".cyan(),perma ,file_name.blue());
 					} else if k == 2 {
-						println!("{}{}	{}",flens.cyan() ,"mo".cyan() ,file_name.blue());
-						let _ = perms(&file_name);
+						println!("{}{}	{:?}	{}",flens.cyan() ,"mo".cyan(),perma ,file_name.blue());
 					}
 				} else {
 						println!("{}	{}","dir".cyan() ,file_name.green());
