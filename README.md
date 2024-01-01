@@ -1,10 +1,12 @@
 # Lsm
 
+**A praticly accurate copy of ls command on unix based os in rust**
+
 # Installation
 
 | Os / distribution | command for installing |
 |-------------------|------------------------|
-|Ubuntu/debian based os|`sudo apt install cargi`|
+|Ubuntu/debian based os|`sudo apt install cargo`|
 |Arch linux based Os|`pacman -S rustup`|
 
 On other unix based os use : `curl https://sh.rustup.rs -sSf | sh`
