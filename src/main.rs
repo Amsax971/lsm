@@ -73,8 +73,10 @@ fn run(dir: &Path) -> Result<(), Box< dyn Error>> {
 						permsar = "-rw-r--rw-"
 					} else if perma == 33204 {
 						permsar = "-rw-rw-r--"
+					} else if perma == 33024 {
+						permsar = "-r------"
 					} else if perma == 33152 {
-						permsar = "-r-------"
+						permsar = "-rw------"
 					} else if perma == 33184 {
 						permsar = "-rw-r----"
 					} else if perma == 33200 {
@@ -91,7 +93,37 @@ fn run(dir: &Path) -> Result<(), Box< dyn Error>> {
 						permsar = "-r-----r--"
 					} else if perma == 33030 {
 						permsar = "-r-----rw-"
-					}
+					} else if perma == 33133 {
+						permsar = "-r-xr-xr-x";
+					} else if perma == 33261 {
+						permsar = "-rwxr-xr-x";
+					} else if perma == 33277 {
+						permsar = "-rwxrwxr-x"
+					} else if perma == 33279 {
+						permsar = "-rwxrwxrwx"
+					} else if perma == 33263 {
+						permsar = "-rwxr-xrwx"
+					} else if perma == 33097 {
+						permsar = "-r-x-----"
+					} else if perma == 33225 {
+						permsar = "-rwx------"
+					} else if perma == 33257 {
+						permsar = "-rwxr-x---"
+					} else if perma == 33273 {
+						permsar = "-rwxrwx---"
+					} else if perma == 33229 {
+						permsar = "-rwx---r-x"
+					} else if perma == 33231 {
+						permsar = "-rwx---rwx"
+					} else if perma == 33129 {
+						permsar = "-r-xr-x---"
+					} else if perma == 33145 {
+						permsar = "-r-xrx---"
+					} else if perma == 33101 {
+						permsar = "-r-x---r-x"
+					} else if perma == 33103 {
+						permsar = "-r-x---rwx"
+					} 
 				}
 
 				// printing
