@@ -43,7 +43,6 @@ fn run(dir: &Path) -> Result<(), Box< dyn Error>> {
 						flenf = flenf.round();
 					}
 				}
-
 				let perma = perms(&file_name);
 				flens = flenf.to_string();
 				if Path::new(&file_name).is_file() {
