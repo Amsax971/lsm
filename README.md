@@ -26,7 +26,7 @@ make uninstall
 
 # More
 
-**Discord** : comming soon
+**Discord** : https://discord.gg/ZqREKZ75
 
 **Website for the project** : comming soon (or not)
 
