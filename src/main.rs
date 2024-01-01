@@ -16,12 +16,19 @@ fn main() {
 
 fn run(dir: &Path) -> Result<(), Box< dyn Error>> {
 		
+		// getting files
+
 		for entry in fs::read_dir(dir)? {
 				let entry = entry?;
 				let file_name = entry
 						.file_name()
 						.into_string()
 						.or_else(|f| Err(format!("Invalid entry: {:?}", f)))?;
+				
+				let fileorn = Path::new(&file_name).is_file();
+
+				// getting lenght
+				
 				let flen  = fs::metadata(file_name.clone())?.len();
 				let mut flens = flen.to_string();
 				let flenint: f32 = flens.parse().unwrap();
@@ -43,15 +50,59 @@ fn run(dir: &Path) -> Result<(), Box< dyn Error>> {
 						flenf = flenf.round();
 					}
 				}
-				let perma = perms(&file_name);
+
+
 				flens = flenf.to_string();
-				if Path::new(&file_name).is_file() {
+
+				// getting permisions
+
+				let perma = perms(&file_name);
+
+				let mut permsar:&str = "----------";
+
+				if fileorn {
+					if perma == 33060 {
+						permsar = "-r--r--r--";
+					} else if perma == 33188 {
+						permsar = "-rw-r--r--";
+					} else if perma == 33204 {
+						permsar = "-rw-rw-r--"
+					} else if perma == 33206 {
+						permsar = "-rw-rw-rw-"
+					} else if perma == 33190 {
+						permsar = "-rw-r--rw-"
+					} else if perma == 33204 {
+						permsar = "-rw-rw-r--"
+					} else if perma == 33152 {
+						permsar = "-r-------"
+					} else if perma == 33184 {
+						permsar = "-rw-r----"
+					} else if perma == 33200 {
+						permsar = "-rw-rw----"
+					} else if perma == 33156 {
+						permsar = "-rw----r--"
+					} else if perma == 33158 {
+						permsar = "-rw----rw-"
+					} else if perma == 33056 {
+						permsar = "-r--r-----"
+					} else if perma == 33072 {
+						permsar = "-r--rw----"
+					} else if perma == 33028 {
+						permsar = "-r-----r--"
+					} else if perma == 33030 {
+						permsar = "-r-----rw-"
+					}
+				}
+
+				// printing
+
+				if fileorn {
 					if k == 0 {
-						println!("{}{}	{:?}	{}",flens.cyan() ,"o".cyan(),perma ,file_name.blue());
+						println!("{}{}	{}	{}",flens.cyan() ,"o".cyan(),permsar ,file_name.blue());
 					} else if k == 1 {
-						println!("{}{}	{:?}	{}",flens.cyan() ,"ko".cyan(),perma ,file_name.blue());
+						println!("{}{}	{}	{}",flens.cyan() ,"ko".cyan(),permsar ,file_name.blue());
 					} else if k == 2 {
-						println!("{}{}	{:?}	{}",flens.cyan() ,"mo".cyan(),perma ,file_name.blue());
+						println!("{}{}	{}	{}",flens.cyan() ,"mo".cyan(),permsar ,file_name.blue());
 					}
 				} else {
 						println!("{}	{}","dir".cyan() ,file_name.green());
