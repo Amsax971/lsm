@@ -4,6 +4,8 @@
 
 # Installation
 
+dependecies : `cargo`
+
 | Os / distribution | command for installing |
 |-------------------|------------------------|
 |Ubuntu/debian based os|`sudo apt install cargo`|
