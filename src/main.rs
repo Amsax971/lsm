@@ -8,7 +8,8 @@ use perm::perms;
 mod perm;
 mod len;
 
-fn main() {
+fn main() {	
+	
 	if let Err(ref e) = run(Path::new(".")) {
 		println!("{}", e);
 		process::exit(1);
