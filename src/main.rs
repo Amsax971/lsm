@@ -42,12 +42,20 @@ fn run(dir: &Path) -> Result<(), Box< dyn Error>> {
 					
 					flenf = flenf.round();
 
+					k+=1;
 
 					if flenf > 1024. {
 						flenf = flenf / 1024.;
 
 						k+=1; 
 						flenf = flenf.round();
+
+						if flenf > 1024. {
+							flenf = flenf / 1024.;
+	
+							k+=1; 
+							flenf = flenf.round();
+						}
 					}
 				}
 
@@ -64,9 +72,11 @@ fn run(dir: &Path) -> Result<(), Box< dyn Error>> {
 					if k == 0 {
 						println!("{}{}	{}	{}",flens.cyan().bold() ,"o".cyan(),perma.truecolor(255, 121, 79) ,file_name.blue());
 					} else if k == 1 {
-						println!("{}{}	{}	{}",flens.cyan().bold() ,"ko".cyan(),perma.truecolor(255, 121, 79) ,file_name.blue());
+						println!("{}{}	{}	{}",flens.cyan().bold() ,"Ko".cyan(),perma.truecolor(255, 121, 79) ,file_name.blue());
 					} else if k == 2 {
-						println!("{}{}	{}	{}",flens.cyan().bold() ,"mo".cyan(),perma.truecolor(255, 121, 79) ,file_name.blue());
+						println!("{}{}	{}	{}",flens.cyan().bold() ,"Mo".cyan(),perma.truecolor(255, 121, 79) ,file_name.blue());
+					} else if k == 2 {
+						println!("{}{}	{}	{}",flens.cyan().bold() ,"Go".cyan(),perma.truecolor(255, 121, 79) ,file_name.blue());
 					}
 				} else {
 						println!("{}	{}	{}","dir".cyan().bold() ,perma.truecolor(255, 121, 79) ,file_name.truecolor(79, 255, 83).bold());

@@ -81,7 +81,7 @@ pub fn perms(x: &str) -> &str {
             permsar = "-r-x---rwx"
         } 
     } else {
-        permsar = "Not Handeld yet"
+        permsar = "drwxrwxr-x"
     }
     
     return permsar;
