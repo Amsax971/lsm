@@ -80,6 +80,8 @@ pub fn perms(x: &str) -> &str {
         } else if perma == 33103 {
             permsar = "-r-x---rwx"
         } 
+    } else {
+        permsar = "Not Handeld yet"
     }
     
     return permsar;

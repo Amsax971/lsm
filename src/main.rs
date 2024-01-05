@@ -57,18 +57,19 @@ fn run(dir: &Path) -> Result<(), Box< dyn Error>> {
 				// getting permisions
 
 				let perma = perms(&file_name);
+		
 				// printing
 
 				if fileorn {
 					if k == 0 {
-						println!("{}{}	{}	{}",flens.cyan() ,"o".cyan(),perma.truecolor(255, 121, 79) ,file_name.blue());
+						println!("{}{}	{}	{}",flens.cyan().bold() ,"o".cyan(),perma.truecolor(255, 121, 79) ,file_name.blue());
 					} else if k == 1 {
-						println!("{}{}	{}	{}",flens.cyan() ,"ko".cyan(),perma.truecolor(255, 121, 79) ,file_name.blue());
+						println!("{}{}	{}	{}",flens.cyan().bold() ,"ko".cyan(),perma.truecolor(255, 121, 79) ,file_name.blue());
 					} else if k == 2 {
-						println!("{}{}	{}	{}",flens.cyan() ,"mo".cyan(),perma.truecolor(255, 121, 79) ,file_name.blue());
+						println!("{}{}	{}	{}",flens.cyan().bold() ,"mo".cyan(),perma.truecolor(255, 121, 79) ,file_name.blue());
 					}
 				} else {
-						println!("{}	{}","dir".cyan() ,file_name.truecolor(79, 255, 83));
+						println!("{}	{}	{}","dir".cyan().bold() ,perma.truecolor(255, 121, 79) ,file_name.truecolor(79, 255, 83).bold());
 				}
 			}
 	Ok(())
